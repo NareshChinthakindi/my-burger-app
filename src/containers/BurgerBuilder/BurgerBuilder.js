@@ -86,6 +86,11 @@ this.updatePurchaseState(updatedIngredients);
        this.setState({purchasing:true});
    }
 
+   purchasingCancelHandler =() =>{
+      this.setState({purchasing:false});
+}
+
+
 render() {
 
     const disabledInfo = {
@@ -98,7 +103,8 @@ render() {
 
     return (
        <Auxiliary>
-            <Modal show={this.state.purchasing}>
+           
+           <Modal show={this.state.purchasing} modalClosed={this.purchasingCancelHandler}>
            <OrderSummary ingredients={this.state.ingredients}/>
 
            </Modal> 
